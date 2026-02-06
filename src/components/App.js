@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+
 import Form from "./Form";
 import FormRef from "./FormRef";
 import FormState from "./FormState";
@@ -13,11 +14,11 @@ const App = () => {
         <Link id="form-state-link" to="/form-state">useState Form</Link>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Form />} />
-        <Route path="/form-ref" element={<FormRef />} />
-        <Route path="/form-state" element={<FormState />} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={Form} />
+        <Route path="/form-ref" component={FormRef} />
+        <Route path="/form-state" component={FormState} />
+      </Switch>
     </BrowserRouter>
   );
 };
